@@ -1,5 +1,4 @@
 import { getProducts } from "@/api";
-import { Product } from "@/types";
 import Link from "next/link";
 
 export default async function Home() {

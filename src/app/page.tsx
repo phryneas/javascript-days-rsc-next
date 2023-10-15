@@ -1,7 +1,6 @@
-import { Product } from "@/types";
 import Link from "next/link";
 
-export default async function Home() {
+export default function Home() {
   return (
     <main>
       <h2>Willkommen im Kartoffelshop!</h2>
