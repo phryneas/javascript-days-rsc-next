@@ -1,7 +1,11 @@
 import { Product, Review } from "@/types";
 
 export async function getProducts(): Promise<Product[]> {
-  const response = await fetch("http://localhost:3004/products");
+  const response = await fetch("http://localhost:3004/products", {
+    next: {
+      tags: ["products"],
+    },
+  });
   return response.json();
 }
 
@@ -30,7 +34,11 @@ export async function updateProduct(product: Product): Promise<Product> {
 }
 
 export async function getProduct(id: string | number): Promise<Product> {
-  const response = await fetch(`http://localhost:3004/products/${id}`);
+  const response = await fetch(`http://localhost:3004/products/${id}`, {
+    next: {
+      tags: ["products"],
+    },
+  });
   return response.json();
 }
 
