@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "name": "Augusta",
+      "short": "Die Kloßkartoffel",
+      "long": "Die Augusta ist eine mehligkochende Kartoffelsorte mit gelbem Fleisch und gelber Schale. Sie ist besonders geeignet für Kartoffelpüree, Knödel und Klöße.",
+      "image": {
+        "src": "1024px-Augusta.jpg",
+        "attribution": "Dezidor / CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=5075638"
+      }
+    },
+    {
+      "id": 1,
+      "name": "Annabelle",
+      "short": "Die Salatkartoffel",
+      "long": "Die Annabelle ist eine festkochende Kartoffelsorte mit gelbem Fleisch und gelber Schale. Sie ist besonders geeignet für Salate, Bratkartoffeln und Pellkartoffeln.",
+      "image": {
+        "src": "1024px-Lebensmittel-KartoffelsorteAnnabelle1-Asio.jpg",
+        "attribution": "Asio otus / CC BY-SA 3.0, https://commons.wikimedia.org/wiki/File:Lebensmittel-KartoffelsorteAnnabelle1-Asio.jpg"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Bamberger Hörnla",
+      "short": "Die Delikatesse",
+      "long": "Bamberger Hörnla, auch Bamberger Hörnchen, ist eine alte Kartoffelsorte aus Franken. Die als festkochend geltenden Kartoffeln sind klein und haben eine längliche, fingerförmige, krumme Form. Sie haben festes hellgelbes Fleisch, leicht ockerfarbene Haut und ein nussiges Aroma mit einem intensiven Eigengeschmack.",
+      "image": {
+        "src": "1024px-Bamberger_Hoernle.jpg",
+        "attribution": "Alice Wiegand / CC BY-SA 2.5, https://commons.wikimedia.org/w/index.php?curid=470485"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Belana",
+      "short": "Die Allrounderin",
+      "long": "Belana ist eine festkochende Sorte mit ovaler Kartoffelform. Sie wird als Nachfolger der Sorte Linda gehandelt. Belana hat über die Jahre durch ihre stabile festkochende Eigenschaft sehr überzeugt. Auch geschmacklich ist sie eine große Konkurrenz zur Linda.",
+      "image": {
+        "src": "1034px-Belana_Kartoffeln.jpeg",
+        "attribution": "Sir James / CC-BY-4.0, https://commons.wikimedia.org/wiki/File:Belana_Kartoffeln.jpeg"
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "id": 0,
+      "productId": 0,
+      "stars": 5,
+      "body": "Ich liebe diese Kartoffel!",
+      "author": "gieselaausmünchen"
+    },
+    {
+      "id": 1,
+      "productId": 0,
+      "stars": 4,
+      "body": "Lecker Gnocci!",
+      "author": "peter80"
+    },
+    {
+      "id": 2,
+      "productId": 0,
+      "stars": 1,
+      "body": "Hat meinen Kartoffelsalat ruiniert!",
+      "author": "karen79"
+    },
+    {
+      "id": 3,
+      "productId": 1,
+      "stars": 5,
+      "body": "Zum Spargel die Beste.",
+      "author": "mathilda78"
+    }
+  ]
+}

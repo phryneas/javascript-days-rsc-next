@@ -2,26 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 100px auto 50px;
+  grid-template-areas: 
+  "header header"
+  "nav    main"
+  "footer footer";
+  @apply box-border p-16 bg-gray-200 container mx-auto;
+}
+
+body > header {
+  grid-area: header;
+  @apply text-center;
+}
+body > nav {
+  grid-area: nav;
+  @apply flex flex-col;
+}
+body > main {
+  grid-area: main;
+}
+body > footer {
+  grid-area: footer;
+  @apply text-center;
+}
+
+
+a { @apply underline }
+h1 { @apply text-5xl }
+h2 { @apply text-3xl }
+h3 { @apply text-2xl }
+h4 { @apply text-xl }
+
+h1, h2, h3, h4 {
+  @apply font-bold mt-4 mb-2;
+}
+
+article img:first-of-type {
+  @apply w-full object-cover;
+}
+
+form {
+  @apply grid gap-4 p-4;
+  grid-template-columns: min-content auto;
+}
+
+form label {
+  @apply contents;
+}
+
+form input,
+form button,
+form textarea {
+  grid-column: 2;
+  @apply p-1;
 }
