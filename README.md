@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Wiederkehrende Frage:
 
-## Getting Started
+- Wo kommt das Feature her?
+  - React Stable?
+  - React Canary?
+  - Next.js?
+- Gibt es ein Pendant im alten Next.js?
+- wo findet der Render statt? (Build, Server, Browser)
 
-First, run the development server:
+# Workshop
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+grober Ablauf:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Server Components
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Die ersten RSC
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Projekt klonen
+- /layout.tsx, /page.tsx anschauen
+- im Browser oeffnen
+- JavaScript deaktivieren
+- Theorie: Shell
+- Theorie: Serverlose Server Components - `nextConfig.output: 'export'`
 
-## Learn More
+### Data Fetching - async components
 
-To learn more about Next.js, take a look at the following resources:
+- /products/page.tsx
+- `async` Komponente
+- datafetching via simplen fetch-call
+- `yarn build`
+- Parallele zu SSG
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Suspense Boundaries
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- /loading.tsx
+- api verlangsamen
+- Theorie: implizite Suspense-Komponente
+- im Browser:
 
-## Deploy on Vercel
+  - JavaScript deaktivieren
+  - Theorie: streaming SSR
+    - wiederholen: deshalb die shell
+    - https://react.dev/reference/react-dom/server/renderToPipeableStream#usage
+  - Theorie: JSON payload, out-of-order stream
+    - RSC parser: https://rsc-parser.vercel.app/
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Error Boundaries
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- /error.tsx
+- Fehler in Komponente werfen
+- Theorie: implizite Error Boundary
+
+### "spontaner" SSR
+
+- /products/[id]/page.tsx
+- Parallele zu SSR
+
+### Nested Layouts
+
+- /products/layout.tsx
+- Next App Router feature: nested Layouts
+- Link: SSR -> SSG
+
+### SSG ohne Links
+
+- `generateStaticParams`
+
+### Server Actions
+
+- /admin/edit/[id]/page.tsx
+- Theory: `"use server"` pragma in functions
+- Theory: `action` in `form`
+- Implementation Detail: `action.$$FORM_ACTION` - https://github.com/facebook/react/blob/a20eea25197df0da80104917df414747eeab1ac9/packages/react-dom/src/__tests__/ReactDOMFizzForm-test.js#L481-L492
+
+### Der Next `fetch` Cache
+
+- `revalidateTag` & `{ next: { tags: ["tag"] } }`
+- Theorie: wie koennte man so etwas wie den cache selbst implementieren, aber "pro request"? -> `React.cache`
+
+## Client Components
+
+### Basics
+
+- /products/[id]/Reviews.tsx mit `useQuery`
+- Theorie: "use client"
+- Provider in extra Komponente benoetigt
+
+### Client Komponenten sind "ansteckend"
+
+- Theorie: alle Imports einer "use client" file sind auch Client-Side
+
+### Nesting: RSC in CC
+
+- /Providers.tsx
+
+
+# andere Links: 
+https://www.youtube.com/watch?v=pj5N-Khihgc
+https://jser.dev/react/2023/04/20/how-do-react-server-components-work-internally-in-react/
